@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+<title>Part A</title>
+</HEAD>
+<body>
+    <script>
+
+        // ------------PART A------------ //
+        function generateButtons(num) {
+            let text = document.createElement("h2");
+            if (num > 0 && num <= 26) {
+                for(let i=0; i<num; i++){
+                    let btn = document.createElement("button");
+                    document.body.appendChild(btn);
+                    let alpha = String.fromCharCode(65 + i)
+                    btn.style.marginRight = "20px";
+                    btn.style.marginBottom = "20px";
+                    btn.innerHTML = alpha;
+                    btn.onclick = function() {text.innerHTML = "Button " + alpha + " was clicked", 
+                    console.log("Button " + alpha + " was clicked")}
+                }
+                document.body.appendChild(text);
+
+            }
+        }
+        generateButtons(26)
+    
+    //-----------------------------//
+        document.write('<br>');
+        document.write('<hr>');
+        document.write('<br>');
+    //-----------------------------//
+    
+
+        // ------------PART B------------ //
+        function myRecipe(title, servings, ingredients) {
+            this.title = title;
+            this.servings = servings;
+            this.ingredients = ingredients;
+            this.print = function() {let text = document.createElement("h2"); 
+            document.body.appendChild(text);
+            let ing = "";
+            for(let i=0; i<=ingredients.length - 1; i++){
+                ing += ingredients[i] + "<br><br>";
+            }
+            text.innerHTML = "Title: " + title + "<br><br>" + "Serves: " + servings + "<br><br>" + "Ingridents:" + "<br><br>" + ing;
+            }
+
+        }
+
+        recipeOne = new myRecipe("Chicken Cacciatore", 2, ["cinnamon", "lettuce", "onion"]);
+        recipeOne.print()
+    
+    </script>
+
+</body>
+</HTML>
